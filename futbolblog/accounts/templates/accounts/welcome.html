@@ -1,0 +1,14 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Bienvenido - FutbolBlog{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Bienvenido a FutbolBlog</h2>
+        <p>Tu sitio de noticias de fútbol.</p>
+        <div>
+            <a href="{% url 'login' %}">Iniciar sesión</a> |
+            <a href="{% url 'register' %}">Registrarse</a>
+        </div>
+    </section>
+{% endblock %}

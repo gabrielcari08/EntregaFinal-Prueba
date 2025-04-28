@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}FutbolBlog{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'welcome' %}">FutbolBlog</a></h1>
+        <nav>
+            {% block nav %}
+            <!-- Aquí irá la navegación si hace falta -->
+            {% endblock %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Aquí el contenido de cada página -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 FutbolBlog</p>
+    </footer>
+</body>
+</html>
