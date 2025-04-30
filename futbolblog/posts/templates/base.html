@@ -9,8 +9,18 @@
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Inicio</a></li>
-                <li><a href="{% url 'about' %}">Acerca de mí</a></li>
                 <li><a href="{% url 'post_list' %}">Posts</a></li>
+                <li><a href="{% url 'post_category_list' 'lpf' %}">Liga Argentina</a></li>
+                <li><a href="{% url 'post_category_list' 'pbn' %}">Primera Nacional</a></li>
+                <li><a href="{% url 'post_category_list' 'int' %}">Internacional</a></li>
+                <li><a href="{% url 'post_category_list' 'arg' %}">Seleccion</a></li>
+                <li><a href="{% url 'post_category_list' 'lib' %}">Libertadores</a></li>
+                <li><a href="{% url 'post_category_list' 'sud' %}">Sudamericana</a></li>
+                <li><a href="{% url 'post_category_list' 'mun' %}">Mundial 2026</a></li>
+                <li><a href="{% url 'post_category_list' 'muc' %}">Mundial de Clubes</a></li>
+                <li><a href="{% url 'post_category_list' 'other' %}">Otros</a></li>
+                <li><a href="{% url 'dashboard' %}">Mis Publicaciones</a></li>
+                <li><a href="{% url 'about' %}">Acerca de mí</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Perfil</a></li>
                 {% else %}

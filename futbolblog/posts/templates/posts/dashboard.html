@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi panel de contro{% endblock %}
+
+{% block content %}
+<p>Bienvenido {{ request.user.username }}</p>
+
+<h2>Mis publicaciones</h2>
+<ul>
+  {% for post in user_posts %}
+    <li>{{ post.title }}</li>
+  {% empty %}
+    <li>No has creado publicaciones todavía.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+

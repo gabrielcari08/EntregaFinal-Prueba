@@ -1,0 +1,16 @@
+{% extends 'posts/post_list.html' %}
+
+{% block title %}Posts - {{ request.path|slice:"10:-1" }}{% endblock %}
+
+{% block content %}
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> - 
+        por {{ post.author.username }} el {{ post.created_at|date:"d/m/Y" }}
+    </li>
+    {% empty %}
+      <li>No hay publicaciones en esta categoría.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
