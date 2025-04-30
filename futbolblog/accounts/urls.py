@@ -4,8 +4,8 @@ from .views import UserLoginView, UserLogoutView, UserRegisterView, ProfileView,
 urlpatterns = [
     path('', WelcomeView.as_view(), name='welcome'),
     path('login/', UserLoginView.as_view(), name='login'),
-    path('accounts/logout/', UserLogoutView.as_view(), name='logout'),
+    path('logout/', UserLogoutView.as_view(next_page='welcome'), name='logout'),
     path('register/', UserRegisterView.as_view(), name='register'),
-    path('accounts/profile/', ProfileView.as_view(), name='profile'),
-    path('accounts/edit_profile/', EditProfileView.as_view(), name='edit_profile'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('profile/edit/', EditProfileView.as_view(), name='edit_profile'),
 ]

@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'accounts',
+    'posts',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,7 @@ import os
 # Archivos subidos por usuarios (imágenes, avatares, etc)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = 'login'  # Nombre de la URL de login
+LOGIN_REDIRECT_URL = 'post_list'  # Redirigir después de login exitoso
+LOGOUT_REDIRECT_URL = 'welcome'  # Redirigir después de logout

@@ -5,9 +5,16 @@ from django.contrib.auth.models import User
 from .models import Profile
 from .forms import RegisterForm, EditProfileForm, ChangePasswordForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.views.generic import TemplateView
 
 class WelcomeView(TemplateView):
     template_name = 'accounts/welcome.html'
+    
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('post_list')
+        return super().dispatch(request, *args, **kwargs)
 
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'

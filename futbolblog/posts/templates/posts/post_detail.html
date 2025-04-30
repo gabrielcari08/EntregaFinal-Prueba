@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - FutbolBlog{% endblock %}
+
+{% block content %}
+  <h2>{{ post.title }}</h2>
+  <h3>{{ post.subtitle }}</h3>
+  <p>Por {{ post.author.username }} el {{ post.created_at|date:"d/m/Y" }}</p>
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="Imagen del post" style="max-width: 100%;">
+  {% endif %}
+  <div>
+    {{ post.content|safe }}
+  </div>
+
+  {% if user == post.author %}
+    <a href="{% url 'post_update' post.pk %}">Editar</a> | 
+    <a href="{% url 'post_delete' post.pk %}">Borrar</a>
+  {% endif %}
+  
+  <a href="{% url 'post_list' %}">Volver al listado</a>
+{% endblock %}
