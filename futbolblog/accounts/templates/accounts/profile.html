@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="profile-container">
     <h2>Mi Perfil</h2>
 
-    <div>
+    <div class="profile-avatar-container">
         {% if request.user.profile.avatar %}
-            <img src="{{ request.user.profile.avatar.url }}" alt="Avatar" style="width: 150px; height: 150px; border-radius: 50%;">
+            <img src="{{ request.user.profile.avatar.url }}" alt="Avatar" class="profile-avatar">
         {% else %}
-            <p>No tienes un avatar.</p>
+            <div class="profile-avatar no-avatar">No tienes un avatar.</div>
         {% endif %}
     </div>
 
-    <p><strong>Username:</strong> {{ request.user.username }}</p>
-    <p><strong>Email:</strong> {{ request.user.email }}</p>
-    <p><strong>Biografía:</strong> {{ request.user.profile.bio }}</p>
+    <div class="profile-info">
+        <p><strong>Username:</strong> {{ request.user.username }}</p>
+        <p><strong>Email:</strong> {{ request.user.email }}</p>
+        <p><strong>Biografía:</strong> {{ request.user.profile.bio }}</p>
+    </div>
 
-    <a href="{% url 'edit_profile' %}">Editar Perfil</a>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Cerrar sesión</button>
-    </form>    
+    <div class="profile-actions">
+        <a href="{% url 'edit_profile' %}">Editar Perfil</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

@@ -5,7 +5,11 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Enviar</button>
+    <div class="profile-actions">
+        <button type="submit">Enviar</button>
+    </div>
 </form>
-<a href="{% url 'inbox' %}">Volver al inbox</a>
+<div class="profile-actions">
+    <a href="{% url 'inbox' %}">Volver al inbox</a>
+</div>
 {% endblock %}
