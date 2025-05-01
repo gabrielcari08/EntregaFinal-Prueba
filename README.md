@@ -27,7 +27,6 @@ Mitad de Cancha es una aplicación web desarrollada con Django que permite a los
 ## Instalación
 
 1. Clona este repositorio:
-```bash
 git clone https://github.com/gabrielcari08/EntregaFinal-Cari.git
 
 2. Crea y activa el entorno virtual:
