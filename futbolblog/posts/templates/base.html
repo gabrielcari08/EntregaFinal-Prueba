@@ -27,6 +27,10 @@
                     <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
                     <li><a href="{% url 'signup' %}">Registrarse</a></li>
                 {% endif %}
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'inbox' %}">Mensajes</a></li>
+                {% endif %}
+
             </ul>
         </nav>
     </header>
